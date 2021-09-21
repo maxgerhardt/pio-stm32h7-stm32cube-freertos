@@ -55,7 +55,7 @@ Note:
 * This conversion process and the needed build flags are nothing new
     * outlined in many forum threads
     * automatic conversions tools like https://github.com/ussserrr/stm32pio exist that do the **exact same thing**
-* `board_build.stm32cube.custom_config_header` is optional, the default `stm32h7xx_hal_conf.h` supplied by PlatformIO that has everything enabled should work too
+* `board_build.stm32cube.custom_config_header` is needed, the default `stm32h7xx_hal_conf.h` supplied by PlatformIO declares a 25MHz HSE input frequency when the Nucleo board has a 8MHz one. Alternatively, add `-DHSE_VALUE=8000000UL` to the `build_flags`.
 * No need to copy `Core\Startup`, PlatforrmIO already has the startup file and compiles it in. 
 * same goes for `Drivers\CMSIS` and `Drivers\STM32H7xx_HAL_Driver`
 
